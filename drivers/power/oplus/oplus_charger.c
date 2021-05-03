@@ -110,7 +110,7 @@ static struct oplus_chg_chip *g_charger_chip = NULL;
 
 #define DOUBLE_BATTERY	2
 
-int enable_charger_log = 2;
+int enable_charger_log = 0;
 int charger_abnormal_log = 0;
 int tbatt_pwroff_enable = 1;
 static int mcu_status = 0;
