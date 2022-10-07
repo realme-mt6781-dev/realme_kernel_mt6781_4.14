@@ -19,7 +19,7 @@ subdir-ccflags-y += -I$(srctree)/sound/soc/mediatek/common
 # debugging support (also enables trace_printk)
 ccflags-y += -Isound/soc/codecs/tfa98xx
 ccflags-y += -DDEBUG -DTFA_NON_DSP_SOLUTION
-ccflags-y += -Werror
+#ccflags-y += -Werror
 ccflags-y += -DVENDOR_EDIT -DOPLUS_ARCH_EXTENDS
 ccflags-y += $(call cc-option,-Wno-date-time,)
 
