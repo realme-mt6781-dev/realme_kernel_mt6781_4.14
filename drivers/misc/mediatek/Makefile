@@ -14,7 +14,7 @@
 #$(call all-subdir-src-or-makefile)
 export MTK_PLATFORM_NAME := $(CONFIG_MTK_PLATFORM)
 export MTK_PLATFORM := $(subst ",,$(CONFIG_MTK_PLATFORM))
-subdir-ccflags-y += -Werror
+# subdir-ccflags-y += -Werror
 
 ifeq ($(CONFIG_MTK_PLATFORM), "mt6853")
 subdir-ccflags-y += -DOPLUS_FEATURE_CAMERA_OIS

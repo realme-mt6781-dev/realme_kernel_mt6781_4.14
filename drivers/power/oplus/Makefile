@@ -101,7 +101,7 @@ obj-$(CONFIG_OPLUS_CHG) := oplus_chg.o
 else # gki_support
 
 ifeq ($(CONFIG_OPLUS_CHARGER_MTK),y)
-subdir-ccflags-y += -Werror
+# subdir-ccflags-y += -Werror
 subdir-ccflags-y += -Wno-unused-variable
 ifeq ($(CONFIG_OPLUS_CHARGER_MTK6779Q),y)
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
@@ -115,7 +115,7 @@ subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
 endif
 ifeq ($(CONFIG_OPLUS_CHARGER_MTK6877),y)
 subdir-ccflags-y += -I$(srctree)/drivers/misc/mediatek/include
-subdir-ccflags-y += -Werror
+# subdir-ccflags-y += -Werror
 subdir-ccflags-y += -Wunused
 subdir-ccflags-y += -Wno-unused-result
 endif

@@ -174,8 +174,8 @@ typedef struct {
     unsigned char       Sensor[256];
 } sensor_config_info_t;
 
-__attribute__((weak)) unsigned int get_project() {
-	return -1;
+__attribute__((weak)) unsigned int get_project(void) {
+    return -1;
 }
 
 const static struct fdt_property* oplus_get_dts_feature(int handle, char* node_name, char* feature_name)
