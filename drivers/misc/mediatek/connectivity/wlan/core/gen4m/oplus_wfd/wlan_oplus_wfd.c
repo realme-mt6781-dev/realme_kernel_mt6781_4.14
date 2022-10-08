@@ -297,7 +297,7 @@ static void get_avoid_channels(int* out_len, int* out_freqs, int max_num)
     reinit_completion(&s_avoid_channel_query_comp);
     if (WLAN_STATUS_SUCCESS == oplus_wlanQueryLteSafeChannel(prAdapter, 0)) {
         //wait for fw response
-        debug("get_avoid_channels begine to wait for fw");
+        pr_debug("get_avoid_channels begine to wait for fw");
         if (!wait_for_completion_timeout(&s_avoid_channel_query_comp, msecs_to_jiffies(1000))) {
             //time out
             debug("get_avoid_channels wait for fm timeout ");
