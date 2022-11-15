@@ -158,9 +158,6 @@ static int opp_list_debug_create_link(struct opp_device *opp_dev,
 
 /**
  * opp_debug_register - add a device opp node to the debugfs 'opp' directory
- * @opp_dev: opp-dev pointer for device
- * @opp_table: the device-opp being added
- *
  * Dynamically adds device specific directory in debugfs 'opp' directory. If the
  * device-opp is shared with other devices, then links will be created for all
  * devices except the first.
@@ -212,9 +209,6 @@ static void opp_migrate_dentry(struct opp_device *opp_dev,
 
 /**
  * opp_debug_unregister - remove a device opp node from debugfs opp directory
- * @opp_dev: opp-dev pointer for device
- * @opp_table: the device-opp being removed
- *
  * Dynamically removes device specific directory from debugfs 'opp' directory.
  */
 void opp_debug_unregister(struct opp_device *opp_dev,

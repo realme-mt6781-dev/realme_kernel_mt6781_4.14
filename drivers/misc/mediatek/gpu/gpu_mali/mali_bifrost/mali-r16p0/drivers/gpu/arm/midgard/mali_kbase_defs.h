@@ -1110,7 +1110,6 @@ struct kbase_mem_pool {
 /**
  * struct kbase_devfreq_opp - Lookup table for converting between nominal OPP
  *                            frequency, and real frequency and core mask
- * @opp_freq:  Nominal OPP frequency
  * @real_freq: Real GPU frequency
  * @core_mask: Shader core mask
  */
@@ -1286,7 +1285,6 @@ struct kbase_mmu_mode const *kbase_mmu_mode_get_aarch64(void);
  *                         returned on the call to devfreq_add_device().
  * @current_freq:          The real frequency, corresponding to @current_nominal_freq,
  *                         at which the Mali GPU device is currently operating, as
- *                         retrieved from @opp_table in the target callback of
  *                         @devfreq_profile.
  * @current_nominal_freq:  The nominal frequency currently used for the Mali GPU
  *                         device as retrieved through devfreq_recommended_opp()
@@ -1296,9 +1294,7 @@ struct kbase_mmu_mode const *kbase_mmu_mode_get_aarch64(void);
  *                         retrieved through dev_pm_opp_get_voltage().
  * @current_core_mask:     bitmask of shader cores that are currently desired &
  *                         enabled, corresponding to @current_nominal_freq as
- *                         retrieved from @opp_table in the target callback of
  *                         @devfreq_profile.
- * @opp_table:             Pointer to the lookup table for converting between nominal
  *                         OPP (operating performance point) frequency, and real
  *                         frequency and core mask. This table is constructed according
  *                         to operating-points-v2-mali table in devicetree.

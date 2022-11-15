@@ -41,7 +41,6 @@
 
 /**
  * struct ti_abb_info - ABB information per voltage setting
- * @opp_sel:	one of TI_ABB macro
  * @vset:	(optional) vset value that LDOVBB needs to be overriden with.
  *
  * Array of per voltage entries organized in the same order as regulator_desc's
@@ -60,8 +59,6 @@ struct ti_abb_info {
  * @fbb_sel_mask:		setup register- FBB sel mask
  * @rbb_sel_mask:		setup register- RBB sel mask
  * @sr2_en_mask:		setup register- enable mask
- * @opp_change_mask:		control register - mask to trigger LDOVBB change
- * @opp_sel_mask:		control register - mask for mode to operate
  */
 struct ti_abb_reg {
 	u32 setup_off;

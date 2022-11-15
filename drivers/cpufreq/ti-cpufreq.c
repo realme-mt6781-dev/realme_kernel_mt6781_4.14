@@ -115,7 +115,6 @@ static struct ti_cpufreq_soc_data dra7_soc_data = {
 
 /**
  * ti_cpufreq_get_efuse() - Parse and return efuse value present on SoC
- * @opp_data: pointer to ti_cpufreq_data context
  * @efuse_value: Set to the value parsed from efuse
  *
  * Returns error code if efuse not read properly.
@@ -146,7 +145,6 @@ static int ti_cpufreq_get_efuse(struct ti_cpufreq_data *opp_data,
 
 /**
  * ti_cpufreq_get_rev() - Parse and return rev value present on SoC
- * @opp_data: pointer to ti_cpufreq_data context
  * @revision_value: Set to the value parsed from revision register
  *
  * Returns error code if revision not read properly.

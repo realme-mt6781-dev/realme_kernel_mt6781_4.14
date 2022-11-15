@@ -214,7 +214,6 @@ struct iwl_mac_data_sta {
  * @ap: iwl_mac_data_ap struct with most config data
  * @ctwin: client traffic window in TU (period after TBTT when GO is present).
  *	0 indicates that there is no CT window.
- * @opp_ps_enabled: indicate that opportunistic PS allowed
  */
 struct iwl_mac_data_go {
 	struct iwl_mac_data_ap ap;

@@ -66,7 +66,6 @@
  * @current_freq:           The real frequency, corresponding
  *                          to @current_nominal_freq, at which the
  *                          Mali GPU device is currently operating, as
- *                          retrieved from @opp_table in the target callback of
  *                          @devfreq_profile.
  * @current_nominal_freq:   The nominal frequency currently used for
  *                          the Mali GPU device as retrieved through

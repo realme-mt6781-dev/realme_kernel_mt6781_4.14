@@ -1057,6 +1057,9 @@ static void init_sched_groups_energy(int cpu, struct sched_domain *sd,
 	struct sched_group *sg = sd->groups;
 	const struct sched_group_energy *sge;
 	int i;
+	#ifdef CONFIG_MTK_UNIFY_POWER
+	static int retry_once = 1;
+	#endif
 
 	if (!(fn && fn(cpu)))
 		return;
@@ -1093,7 +1096,23 @@ static void init_sched_groups_energy(int cpu, struct sched_domain *sd,
 		cpumask_xor(&mask, sched_group_span(sg), get_cpu_mask(cpu));
 
 		for_each_cpu(i, &mask)
+#ifdef CONFIG_MTK_UNIFY_POWER
+			/* to avoid racing problem w/o performance drop on runtime */
+			/* just retry once to pass tiny slice of racing window on init-time */
+			/* if it was failed once, it guarantee upower_update_tbl_ref() was finished */
+			/* we just need to invoke it once again */
+			if(unlikely(!sched_group_energy_equal(sge,fn(i)))) {
+				if(retry_once) {
+					sge = fn(cpu);
+					i=-1;
+					retry_once--;
+					continue;
+				}
+				BUG_ON(1);
+			}
+#else
 			BUG_ON(!sched_group_energy_equal(sge,fn(i)));
+#endif
 	}
 
 	/* Check that energy efficiency (capacity/power) is monotonically
@@ -1821,6 +1840,10 @@ static struct sched_domain *build_sched_domain(struct sched_domain_topology_leve
 	return sd;
 }
 
+#ifdef OPLUS_FEATURE_SCHED_ASSIST
+extern void update_ux_sched_cputopo(void);
+#endif /* OPLUS_FEATURE_SCHED_ASSIST */
+
 /*
  * Build sched domains for a given set of CPUs and attach the sched domains
  * to the individual CPUs
@@ -1903,6 +1926,9 @@ build_sched_domains(const struct cpumask *cpu_map, struct sched_domain_attr *att
 		update_asym_cpucapacity(cpumask_first(cpu_map));
 
 	ret = 0;
+#ifdef OPLUS_FEATURE_SCHED_ASSIST
+	update_ux_sched_cputopo();
+#endif /* OPLUS_FEATURE_SCHED_ASSIST */
 error:
 	__free_domain_allocs(&d, alloc_state, cpu_map);
 	return ret;

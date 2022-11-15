@@ -1175,8 +1175,6 @@ struct kbase_mem_pool_group_config {
  * struct kbase_devfreq_opp - Lookup table for converting between nominal OPP
  *                            frequency, real frequencies and core mask
  * @real_freqs: Real GPU frequencies.
- * @opp_volts: OPP voltages.
- * @opp_freq:  Nominal OPP frequency
  * @core_mask: Shader core mask
  */
 struct kbase_devfreq_opp {
@@ -1310,7 +1308,6 @@ struct kbase_devfreq_queue_info {
  * @regulators:            Pointer to the structs corresponding to the
  *                         regulators referenced by the GPU device node.
  * @nr_regulators:         Number of regulators set in the regulators array.
- * @opp_table:             Pointer to the device OPP structure maintaining the
  *                         link to OPPs attached to a device. This is obtained
  *                         after setting regulator names for the device.
  * @devname:               string containing the name used for GPU device instance,

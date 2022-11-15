@@ -269,7 +269,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_of_get_opp_desc_node);
 
 /**
  * _opp_add_static_v2() - Allocate static OPPs (As per 'v2' DT bindings)
- * @opp_table:	OPP table
  * @dev:	device for which we do this operation
  * @np:		device node
  *

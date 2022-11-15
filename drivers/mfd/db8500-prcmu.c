@@ -882,7 +882,6 @@ void db8500_prcmu_get_abb_event_buffer(void __iomem **buf)
 
 /**
  * db8500_prcmu_set_arm_opp - set the appropriate ARM OPP
- * @opp: The new ARM operating point to which transition is to be made
  * Returns: 0 on success, non-zero on failure
  *
  * This function sets the the operating point of the ARM.
@@ -985,7 +984,6 @@ unlock_and_return:
 
 /**
  * db8500_set_ape_opp - set the appropriate APE OPP
- * @opp: The new APE operating point to which transition is to be made
  * Returns: 0 on success, non-zero on failure
  *
  * This function sets the operating point of the APE.

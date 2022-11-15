@@ -90,7 +90,6 @@ struct opp_table *_find_opp_table(struct device *dev)
 
 /**
  * dev_pm_opp_get_voltage() - Gets the voltage corresponding to an opp
- * @opp:	opp for which voltage has to be returned for
  *
  * Return: voltage in micro volt corresponding to the opp, else
  * return 0
@@ -110,7 +109,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_get_voltage);
 
 /**
  * dev_pm_opp_get_freq() - Gets the frequency corresponding to an available opp
- * @opp:	opp for which frequency has to be returned for
  *
  * Return: frequency in hertz corresponding to the opp, else
  * return 0
@@ -128,7 +126,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_get_freq);
 
 /**
  * dev_pm_opp_is_turbo() - Returns if opp is turbo OPP or not
- * @opp: opp for which turbo mode is being verified
  *
  * Turbo OPPs are not for normal use, and can be enabled (under certain
  * conditions) for short duration of times to finish high throughput work
@@ -1016,7 +1013,6 @@ int _opp_add(struct device *dev, struct dev_pm_opp *new_opp,
 
 /**
  * _opp_add_v1() - Allocate a OPP based on v1 bindings.
- * @opp_table:	OPP table
  * @dev:	device for which we do this operation
  * @freq:	Frequency in Hz for this OPP
  * @u_volt:	Voltage in uVolts for this OPP
@@ -1129,7 +1125,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_set_supported_hw);
 
 /**
  * dev_pm_opp_put_supported_hw() - Releases resources blocked for supported hw
- * @opp_table: OPP table returned by dev_pm_opp_set_supported_hw().
  *
  * This is required only for the V2 bindings, and is called for a matching
  * dev_pm_opp_set_supported_hw(). Until this is called, the opp_table structure
@@ -1201,7 +1196,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_set_prop_name);
 
 /**
  * dev_pm_opp_put_prop_name() - Releases resources blocked for prop-name
- * @opp_table: OPP table returned by dev_pm_opp_set_prop_name().
  *
  * This is required only for the V2 bindings, and is called for a matching
  * dev_pm_opp_set_prop_name(). Until this is called, the opp_table structure
@@ -1338,7 +1332,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_set_regulators);
 
 /**
  * dev_pm_opp_put_regulators() - Releases resources blocked for regulator
- * @opp_table: OPP table returned from dev_pm_opp_set_regulators().
  */
 void dev_pm_opp_put_regulators(struct opp_table *opp_table)
 {
@@ -1418,7 +1411,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_set_clkname);
 
 /**
  * dev_pm_opp_put_clkname() - Releases resources blocked for clk.
- * @opp_table: OPP table returned from dev_pm_opp_set_clkname().
  */
 void dev_pm_opp_put_clkname(struct opp_table *opp_table)
 {
@@ -1481,7 +1473,6 @@ EXPORT_SYMBOL_GPL(dev_pm_opp_register_set_opp_helper);
 /**
  * dev_pm_opp_register_put_opp_helper() - Releases resources blocked for
  *					   set_opp helper
- * @opp_table: OPP table returned from dev_pm_opp_register_set_opp_helper().
  *
  * Release resources blocked for platform specific set_opp helper.
  */

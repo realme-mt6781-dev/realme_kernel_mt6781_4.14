@@ -62,7 +62,6 @@ extern struct list_head opp_tables;
  * @supplies:	Power supplies voltage/current values
  * @clock_latency_ns: Latency (in nanoseconds) of switching to this OPP's
  *		frequency from any other OPP's frequency.
- * @opp_table:	points back to the opp_table struct this opp belongs to
  * @np:		OPP's device node.
  * @dentry:	debugfs dentry pointer (per opp)
  *
@@ -122,7 +121,6 @@ enum opp_table_access {
  *		table.
  * @head:	notifier head to notify the OPP availability changes.
  * @dev_list:	list of devices that share these OPPs
- * @opp_list:	table of opps
  * @kref:	for reference count of the table.
  * @lock:	mutex protecting the opp_list.
  * @np:		struct device_node pointer for opp's DT node.
