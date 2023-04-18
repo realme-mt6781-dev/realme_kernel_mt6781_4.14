@@ -4565,24 +4565,24 @@ static kal_uint32 open(void)
 *************************************************************************/
 static kal_uint32 close(void)
 {
-	#ifdef CONFIG_MTK_CAM_SECURITY_SUPPORT
-	struct command_params c_params = {0};
-	MUINT32 ret = 0;
-	LOG_INF("%s imgsensor.enable_secure %d\n", __func__, imgsensor.enable_secure);
-
-	if (imgsensor.enable_secure) {
-		if (imgsensor_ca_invoke_command(IMGSENSOR_TEE_CMD_CLOSE, c_params, &ret) != 0) {
-			return ERROR_TEE_CA_TA_FAIL;
-		}
-	}
-
-	spin_lock(&imgsensor_drv_lock);
-	imgsensor.enable_secure = KAL_FALSE;
-	spin_unlock(&imgsensor_drv_lock);
-	LOG_INF("%s enable_secure = %d\n", __func__, imgsensor.enable_secure);
-
-	/*rest all variable if necessary*/
-	#endif
+//	#ifdef CONFIG_MTK_CAM_SECURITY_SUPPORT
+//	struct command_params c_params = {0};
+//	MUINT32 ret = 0;
+//	LOG_INF("%s imgsensor.enable_secure %d\n", __func__, imgsensor.enable_secure);
+//
+//	if (imgsensor.enable_secure) {
+//		if (imgsensor_ca_invoke_command(IMGSENSOR_TEE_CMD_CLOSE, c_params, &ret) != 0) {
+//			return ERROR_TEE_CA_TA_FAIL;
+//		}
+//	}
+//
+//	spin_lock(&imgsensor_drv_lock);
+//	imgsensor.enable_secure = KAL_FALSE;
+//	spin_unlock(&imgsensor_drv_lock);
+//	LOG_INF("%s enable_secure = %d\n", __func__, imgsensor.enable_secure);
+//
+//	/*rest all variable if necessary*/
+//	#endif
 	/*Yijun.Tan@Camera add for resolve isp deque fail 20190108*/
 	streaming_control(KAL_FALSE);
 
@@ -4946,27 +4946,27 @@ static kal_uint32 control(enum MSDK_SCENARIO_ID_ENUM scenario_id, MSDK_SENSOR_EX
 					  MSDK_SENSOR_CONFIG_STRUCT *sensor_config_data)
 {
 
-	#ifdef CONFIG_MTK_CAM_SECURITY_SUPPORT
-
-	struct command_params c_params = {0};
-	MUINT32 ret = 0;
-	LOG_INF("scenario_id = %d\n", scenario_id);
-
-
-	LOG_INF("%s imgsensor.enable_secure %d\n", __func__, imgsensor.enable_secure);
-	c_params.param0 = (void *)scenario_id;
-	c_params.param1 = (void *)image_window;
-	c_params.param2 = (void *)sensor_config_data;
-
-	if (imgsensor.enable_secure) {
-		if (imgsensor_ca_invoke_command(IMGSENSOR_TEE_CMD_CONTROL, c_params, &ret) == 0) {
-			return ret;
-		} else {
-			return ERROR_TEE_CA_TA_FAIL;
-		}
-	}
-
-	#endif
+//	#ifdef CONFIG_MTK_CAM_SECURITY_SUPPORT
+//
+//	struct command_params c_params = {0};
+//	MUINT32 ret = 0;
+//	LOG_INF("scenario_id = %d\n", scenario_id);
+//
+//
+//	LOG_INF("%s imgsensor.enable_secure %d\n", __func__, imgsensor.enable_secure);
+//	c_params.param0 = (void *)scenario_id;
+//	c_params.param1 = (void *)image_window;
+//	c_params.param2 = (void *)sensor_config_data;
+//
+//	if (imgsensor.enable_secure) {
+//		if (imgsensor_ca_invoke_command(IMGSENSOR_TEE_CMD_CONTROL, c_params, &ret) == 0) {
+//			return ret;
+//		} else {
+//			return ERROR_TEE_CA_TA_FAIL;
+//		}
+//	}
+//
+//	#endif
 
 
 	LOG_INF("scenario_id = %d\n", scenario_id);
