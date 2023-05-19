@@ -59,11 +59,13 @@ endif
         export WIFI_ECO_VER=1
 
         export CFG_FM_CHIP_ID=$(MTK_PLATFORM_ID)
-        export CFG_FM_CHIP=mt6631
+        export CFG_FM_CHIP=mt6631_6635
 
         # Do build-in for xxx.c checking
         subdir-ccflags-y += -D MTK_WCN_REMOVE_KERNEL_MODULE
         subdir-ccflags-y += -D MTK_WCN_BUILT_IN_DRIVER
+        obj-y += connfem/
+        obj-y += conninfra/
         obj-y += common/
         obj-y += wlan/adaptor/
         obj-y += wlan/core/gen4m/
